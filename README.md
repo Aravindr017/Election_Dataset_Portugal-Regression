@@ -121,7 +121,7 @@ Scatter plots reveal relationships between voting statistics and election outcom
 Most preprocessing tasks improve the quality and reliability of the dataset for future analysis.
 
 
-######################################################################################################################################################################
+-------------------------
 
 
 ### Outlier Handling 
@@ -129,7 +129,7 @@ Most preprocessing tasks improve the quality and reliability of the dataset for 
    - after finding outliers , we try to clip with IQR method
    - finally ,again verify with Boxplot
 
-######################################################################################################################################################################
+-------------------------
 
 
 ###  Correlation Analysis
@@ -153,7 +153,9 @@ Most preprocessing tasks improve the quality and reliability of the dataset for 
   - Mean = 0
   - Standard Deviation = 1
 - Compared feature values before and after scaling.
-##########################################################################################################################################################################
+
+-------------------------
+
 
 ### Encoding Categorical Columns
 
