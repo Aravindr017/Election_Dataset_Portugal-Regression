@@ -1,4 +1,17 @@
-# Data Preprocessing README
+# README
+
+## Project Title: Election Dataset Portugal 2019 - Regression
+
+## Dataset Source:
+Group 1: [Real-time Election Results Portugal 2019](https://archive.ics.uci.edu/dataset/513/real+time+election+results+portugal+2019)
+
+## Team Contributions:
+- **Febin**: Exploratory Data Analysis (EDA)
+- **Kiran**: Outliers Handling
+- **Pavana**: Correlation, Mutual Information, Scaling
+- **Aravind**: Encoding
+
+# Data Preprocessing Overview
 
 This document outlines the steps taken to preprocess the `ElectionData.csv` dataset, preparing it for machine learning model development. The goal of this preprocessing is to clean the data, handle outliers, perform feature selection, scale numerical features, and encode categorical features.
 
