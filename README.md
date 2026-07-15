@@ -1,7 +1,7 @@
 # Data Preprocessing - Election Result Portugal 2019
 The task which were doing as the group during the course at ICTAK TVM.
 
-Objectives
+## Objectives
 
 The main objectives of this preprocessing project are to:
 
@@ -15,7 +15,7 @@ Prepare the dataset for further statistical analysis and machine learning.
 
 Preprocessing Steps Performed
 
-1. Import Required Libraries
+### 1. Import Required Libraries
 
 Imported Python libraries required for data manipulation and visualization:
 
@@ -24,14 +24,15 @@ NumPy
 Matplotlib
 Seaborn
 
-2. Load the Dataset
+### 2. Load the Dataset
 
 The dataset was loaded into a Pandas DataFrame for analysis.
 
   - source of the dataset
+
   https://archive.ics.uci.edu/dataset/513/real+time+election+results+portugal+2019
 
-3. Initial Data Exploration
+### 3. Initial Data Exploration
 
 The following methods were used:
 
@@ -48,18 +49,18 @@ Basic statistical summary
 Dataset structure
 
 
-4. Missing Value Analysis
+### 4. Missing Value Analysis
 
 Purpose:
 
 Identify incomplete records
 Decide appropriate strategies for handling missing values
 
-5. Duplicate Record Detection
+### 5. Duplicate Record Detection
 
 Removing duplicates helps improve data quality and avoids bias in later analyses.
 
-6. Data Type Verification
+### 6. Data Type Verification
 
 Verified that every feature has the appropriate data type.
 
@@ -70,7 +71,7 @@ Categorical columns → Object
 
 Correct data types are essential for preprocessing and modeling.
 
-7. Statistical Summary
+### 7. Statistical Summary
 
 Generated descriptive statistics including:
 
@@ -83,7 +84,7 @@ Quartiles
 
 This helped understand the overall distribution of numerical variables.
 
-8. Outlier Detection
+### 8. Outlier Detection
 
 Outliers were detected using Boxplots.
 
@@ -91,7 +92,8 @@ Purpose:
 
 Identify unusually high or low values.
 Determine whether further outlier treatment is required.
-9. Data Visualization
+
+### 9. Data Visualization
 
 Visualizations were created to better understand the data.
 
@@ -108,7 +110,7 @@ Relationships between variables
 Possible outliers
 Trends within election data
 
-Observations
+## Observations
 
 During preprocessing, the following observations were made:
 
