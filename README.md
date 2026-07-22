@@ -1,6 +1,6 @@
 ## Project Overview: Election Dataset Portugal - Regression
 
-This notebook details a machine learning project focused on predicting `FinalMandates` using the Real-Time Election Results Portugal 2019 dataset. The process involves comprehensive data preprocessing, feature engineering, and the implementation and evaluation of various regression models, particularly focusing on the K-Nearest Neighbors (KNN) Regressor.
+This notebook details a machine learning project focused on predicting `FinalMandates` using the Real-Time Election Results Portugal 2019 dataset. The process involves comprehensive data preprocessing, feature engineering, and the implementation and evaluation of various regression models, particularly focusing on the K-Nearest Neighbors (KNN) Regressor, Linear Regression, and Decision Tree Regressor.
 
 ### Objectives
 
@@ -48,48 +48,102 @@ This notebook details a machine learning project focused on predicting `FinalMan
 #### 7. Encoding Categorical Columns
 - **One-Hot Encoding**: Categorical features (`territoryName`, `Party`) were converted into numerical format using `OneHotEncoder(sparse_output=False)`.
 
-### Model Building
+# Model Building
 
 #### 1. Train-Test Split
 - The preprocessed data `X` (features) and `y` (target: `FinalMandates`) were split into training and testing sets with a `test_size` of 0.2 and `random_state=33`.
 
 #### 2. K-Nearest Neighbors (KNN) Regressor
-- **Baseline KNN Model**: Trained a `KNeighborsRegressor` on the `X_train` and `y_train`.
-- **Boosting with KNN**: An `AdaBoostRegressor` was implemented using `KNeighborsRegressor` as the base estimator.
-- **Cross-Validation (K-Fold)**: `KFold` cross-validation with 4 splits (`n_splits=4`, `shuffle=True`, `random_state=33`) was applied to the `KNeighborsRegressor`.
-- **Hyperparameter Tuning (Grid Search CV)**: `GridSearchCV` was used to find optimal hyperparameters (`n_neighbors`, `weights`) for `KNeighborsRegressor`.
-- **Hyperparameter Tuning (Randomized Search CV)**: `RandomizedSearchCV` was used for a broader search of hyperparameters (`n_neighbors`, `weights`, `p`) for `KNeighborsRegressor`.
-
-### Model Evaluation
-
-The models were evaluated using the following regression metrics:
-- **Mean Absolute Error (MAE)**
-- **Mean Squared Error (MSE)**
-- **R-squared (R²)**
-
-#### KNN Regressor Evaluation:
 - **Baseline KNN Model**:
     - MSE: 0.1363
     - MAE: 0.0236
     - R² Score: 0.9974
-- **Boosting KNN Regression Model**:
-    - MSE: 0.0002
-    - MAE: 0.0006
-    - R² Score: 0.99999
-- **KFold Cross-validation for KNN Regressor**:
+- **Boosting with KNN**:
+    - MSE: 0.00003
+    - MAE: 0.0001
+    - R² Score: 0.999999
+- **Cross-Validation (K-Fold)**:
     - Cross validation scores: [99.75%, 99.96%, 99.88%, 99.74%]
     - Mean of CV scores: 99.83%
-- **KNN Regressor (After Hyperparameter Tuning - Grid Search CV)**:
+- **Hyperparameter Tuning (Grid Search CV)**:
     - Best Parameters: `{'n_neighbors': 3, 'weights': 'distance'}`
     - Best CV Score: 0.9983
     - MAE: 0.0023
     - MSE: 0.0160
     - R² Score: 0.9997
-- **KNN Regressor (Randomized Search CV)**:
+- **Hyperparameter Tuning (Randomized Search CV)**:
     - Best Parameters: `{'weights': 'distance', 'p': 1, 'n_neighbors': 3}`
     - Best CV Score: 0.9983
     - MAE: 0.0088
     - MSE: 0.0261
     - R² Score: 0.9995
 
-*(Further models like SVM, Decision Tree, and Linear Regression are building....)*
+#### 3. Linear Regression Model
+- **Baseline Linear Regression Model**:
+    - MSE: 13.7068
+    - MAE: 0.8314
+    - R² Score: 0.7354
+- **Boosting with Linear Regression**:
+    - MSE: 13.6542
+    - MAE: 0.8408
+    - R² Score: 0.7365
+- **Cross-Validation (K-Fold)**:
+    - Cross validation scores: [75.24%, 82.39%, 86.35%, 83.63%]
+    - Mean of CV scores: 81.90%
+- **Hyperparameter Tuning (Grid Search CV)**:
+    - Best Parameters: `{'fit_intercept': True, 'positive': False}`
+    - Best CV Score: 0.8428
+    - MAE: 0.8314
+    - MSE: 13.7068
+    - R² Score: 0.7354
+- **Hyperparameter Tuning (Randomized Search CV)**:
+    - Best Parameters: `{'positive': False, 'fit_intercept': True}`
+    - Best CV Score: 0.8413
+    - MAE: 0.8314
+    - MSE: 13.7068
+    - R² Score: 0.7354
+
+#### 4. Decision Tree Regressor
+- **Baseline Decision Tree Model**:
+    - MSE: 0.0018
+    - MAE: 0.0018
+    - R² Score: 0.99996
+- **Bagging (Random Forest) Model**:
+    - MSE: 0.0758
+    - MAE: 0.0137
+    - R² Score: 0.9985
+- **Cross-Validation (K-Fold)**:
+    - Cross validation scores: [95.66%, 99.86%, 95.69%, 99.99%, 99.97%]
+    - Mean of CV scores: 98.23%
+- **Hyperparameter Tuning (Grid Search CV)**:
+    - Best Parameters: `{'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 5}`
+    - Best CV Score: 0.9943
+    - MAE: 0.0214
+    - MSE: 0.0162
+    - R² Score: 0.9997
+- **Hyperparameter Tuning (Randomized Search CV)**:
+    - Best Parameters: `{'min_samples_split': 10, 'min_samples_leaf': 2, 'max_features': None, 'max_depth': None}`
+    - Best CV Score: 0.9821
+    - MAE: 0.0296
+    - MSE: 0.3680
+    - R² Score: 0.9929
+
+#### 5. SVM Model
+- **Baseline SVM Model**:
+    - MSE: 0.0043
+    - MAE: 0.0551
+    - R² Score: 0.9999
+- **Bagging with SVM**:
+    - MSE: 0.0069
+    - MAE: 0.0575
+    - R² Score: 0.9999
+- **Cross-Validation (K-Fold)**:
+    - Cross validation scores: [99.99%, 99.99%, 99.99%]
+    - Mean of CV Score: 99.99%
+- **Hyperparameter Tuning (Grid Search CV)**:
+    - Best Parameters: `{'C': 100, 'epsilon': 0.01, 'gamma': 'scale', 'kernel': 'rbf'}`
+    - Best R² score (CV): 0.9999
+- **Hyperparameter Tuning (Randomized Search CV)**:
+    - Best Parameters: `{'kernel': 'rbf', 'gamma': 'scale', 'epsilon': 0.01, 'C': 100}`
+    - Best R² score (CV): 0.9999
+
